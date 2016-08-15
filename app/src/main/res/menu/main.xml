@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item  android:id="@+id/reset"
+        android:title="Reset Count"/>
+    <item  android:id="@+id/set"
+        android:title="Set Count"/>
+    <item  android:id="@+id/check"
+        android:title="Check Count"/>
+    <item  android:id="@+id/help"
+        android:title="Help"/>
+</menu>
