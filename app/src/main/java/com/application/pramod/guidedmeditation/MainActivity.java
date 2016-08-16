@@ -203,7 +203,8 @@ public class MainActivity extends AppCompatActivity
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         Fragment fragment = fragmentManager.findFragmentByTag(tag);
         if(fragment != null) {
-            fragmentTransaction.remove(fragmentManager.findFragmentByTag(tag)).commit();
+            //fragmentTransaction.remove(fragmentManager.findFragmentByTag(tag)).commit();
+            fragmentTransaction.detach(fragmentManager.findFragmentByTag(tag)).commit();
         }
     }
 }
