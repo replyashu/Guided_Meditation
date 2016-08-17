@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity
     PowerManager.WakeLock wl;
     private final String FRAGMENT_TAG_MAIN = "main";
     private final String FRAGMENT_TAG_FLIP = "flip";
+    private final String FRAGMENT_TAG_MAIN_HELP = "main_help";
+    private final String FRAGMENT_TAG_FLIP_HELP = "flip_help";
     private SensorManager sensorManager;
 
     @Override
@@ -183,13 +185,9 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.add(R.id.frag_space, fragmentF, FRAGMENT_TAG_FLIP);
             //fragmentTransaction.remove(fragment);
             fragmentTransaction.commit();
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_help_swipe) {
 
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_help_flip) {
 
         }
 
