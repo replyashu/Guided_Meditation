@@ -19,7 +19,7 @@ import java.util.ArrayList;
 /**
  * Created by pram on 8/12/2016.
  */
-public class Fragment_main extends Fragment {
+public class Fragment_swipe extends Fragment {
     private ListView mainListView ;
     private ArrayAdapter<String> listAdapter ;
 

@@ -28,9 +28,9 @@ public class MainActivity extends AppCompatActivity
     com.application.pramod.guidedmeditation.Params param;
     PowerManager pm;
     PowerManager.WakeLock wl;
-    private final String FRAGMENT_TAG_MAIN = "main";
+    private final String FRAGMENT_TAG_SWIPE = "swipe";
     private final String FRAGMENT_TAG_FLIP = "flip";
-    private final String FRAGMENT_TAG_MAIN_HELP = "main_help";
+    private final String FRAGMENT_TAG_SWIPE_HELP = "swipe_help";
     private final String FRAGMENT_TAG_FLIP_HELP = "flip_help";
     private SensorManager sensorManager;
 
@@ -70,6 +70,16 @@ public class MainActivity extends AppCompatActivity
 
         // Get instance of Vibrator from current Context
         v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+
+        // Initialize the swipe mode initially
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        // Handle the camera action
+        Fragment_swipe fragmentM = new Fragment_swipe();
+        fragmentTransaction.add(R.id.frag_space, fragmentM, FRAGMENT_TAG_SWIPE);
+        //fragmentTransaction.remove(fragment);
+        fragmentTransaction.commit();
     }
 
     @Override
@@ -147,10 +157,6 @@ public class MainActivity extends AppCompatActivity
                         .create();
                 dialog.show();
                 return true;
-//            case R.id.help:
-//                Intent i = new Intent(getApplicationContext(),HelpActivity.class);
-//                startActivity(i);
-//                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -168,16 +174,22 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_swipe) {
 
             checkAvailableFragmentRemove(FRAGMENT_TAG_FLIP);
-            checkAvailableFragmentRemove(FRAGMENT_TAG_MAIN);
+            checkAvailableFragmentRemove(FRAGMENT_TAG_SWIPE);
+            checkAvailableFragmentRemove(FRAGMENT_TAG_SWIPE);
+            checkAvailableFragmentRemove(FRAGMENT_TAG_SWIPE_HELP);
+            checkAvailableFragmentRemove(FRAGMENT_TAG_FLIP_HELP);
 
             // Handle the camera action
-            Fragment_main fragmentM = new Fragment_main();
-            fragmentTransaction.add(R.id.frag_space, fragmentM, FRAGMENT_TAG_MAIN);
+            Fragment_swipe fragmentM = new Fragment_swipe();
+            fragmentTransaction.add(R.id.frag_space, fragmentM, FRAGMENT_TAG_SWIPE);
             //fragmentTransaction.remove(fragment);
             fragmentTransaction.commit();
         } else if (id == R.id.nav_flip) {
-            checkAvailableFragmentRemove(FRAGMENT_TAG_MAIN);
+            checkAvailableFragmentRemove(FRAGMENT_TAG_SWIPE);
+            checkAvailableFragmentRemove(FRAGMENT_TAG_SWIPE);
             checkAvailableFragmentRemove(FRAGMENT_TAG_FLIP);
+            checkAvailableFragmentRemove(FRAGMENT_TAG_SWIPE_HELP);
+            checkAvailableFragmentRemove(FRAGMENT_TAG_FLIP_HELP);
 
 
             // Handle the camera action
@@ -186,9 +198,30 @@ public class MainActivity extends AppCompatActivity
             //fragmentTransaction.remove(fragment);
             fragmentTransaction.commit();
         } else if (id == R.id.nav_help_swipe) {
+            checkAvailableFragmentRemove(FRAGMENT_TAG_SWIPE);
+            checkAvailableFragmentRemove(FRAGMENT_TAG_SWIPE);
+            checkAvailableFragmentRemove(FRAGMENT_TAG_FLIP);
+            checkAvailableFragmentRemove(FRAGMENT_TAG_SWIPE_HELP);
+            checkAvailableFragmentRemove(FRAGMENT_TAG_FLIP_HELP);
+
+            // Handle Help activity
+            Fragment_help_flip fragmentHF = new Fragment_help_flip();
+            fragmentTransaction.add(R.id.frag_space, fragmentHF, FRAGMENT_TAG_SWIPE_HELP);
+            //fragmentTransaction.remove(fragment);
+            fragmentTransaction.commit();
 
         } else if (id == R.id.nav_help_flip) {
+            checkAvailableFragmentRemove(FRAGMENT_TAG_SWIPE);
+            checkAvailableFragmentRemove(FRAGMENT_TAG_SWIPE);
+            checkAvailableFragmentRemove(FRAGMENT_TAG_FLIP);
+            checkAvailableFragmentRemove(FRAGMENT_TAG_SWIPE_HELP);
+            checkAvailableFragmentRemove(FRAGMENT_TAG_FLIP_HELP);
 
+            // Handle Help activity
+            Fragment_help_swipe fragmentHS = new Fragment_help_swipe();
+            fragmentTransaction.add(R.id.frag_space, fragmentHS, FRAGMENT_TAG_FLIP_HELP);
+            //fragmentTransaction.remove(fragment);
+            fragmentTransaction.commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

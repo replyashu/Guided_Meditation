@@ -4,26 +4,32 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_swipe"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_menu_send"
             android:title="Swipe Mode" />
         <item
             android:id="@+id/nav_flip"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_menu_send"
             android:title="Flip Mode" />
 
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Help">
         <menu>
             <item
                 android:id="@+id/nav_help_swipe"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/ic_menu_send"
                 android:title="Help Swipe Mode" />
+            <!---                android:icon="@drawable/ic_menu_share"
+    -->
+
             <item
                 android:id="@+id/nav_help_flip"
                 android:icon="@drawable/ic_menu_send"
                 android:title="Help Flip Mode" />
         </menu>
     </item>
-
+<!--
+    android:icon="@drawable/ic_menu_gallery"
+    android:icon="@drawable/ic_menu_camera"
+-->
 </menu>

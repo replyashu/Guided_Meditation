@@ -13,7 +13,7 @@ public class Fragment_help_swipe extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_flip_layout, container, false);
+        View v = inflater.inflate(R.layout.fragment_help_swipe_layout, container, false);
 
 
         return v;
