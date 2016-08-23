@@ -26,7 +26,7 @@ public class Fragment_flip extends Fragment implements SensorEventListener {
     private boolean lastUpdate = false;
     private long lastTime;
     TextView countText;
-    private SensorManager sensorManager;
+    private static SensorManager sensorManager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,13 +37,12 @@ public class Fragment_flip extends Fragment implements SensorEventListener {
         countText = (TextView) v.findViewById(R.id.count_value);
         countText.setText(Integer.toString(Params.getCount()));
 
-        // Get instance of Vibrator from current Context
-        vib = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
 
         pm = (PowerManager) getActivity().getSystemService(Context.POWER_SERVICE);
         wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "My Tag");
         wl.acquire();
         // Get instance of Vibrator from current Context
+        vib = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
 
         sensorManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
         sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
@@ -79,13 +78,19 @@ public class Fragment_flip extends Fragment implements SensorEventListener {
     public void onStop() {
         super.onStop();
         wl.release();
-        sensorManager.unregisterListener(this,sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER));
     }
 
     @Override
     public void onDetach() {
         super.onStop();
         wl.release();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onStop();
+        wl.release();
+        sensorManager.unregisterListener(this,sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER));
     }
 
     @Override

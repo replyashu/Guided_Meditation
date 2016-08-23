@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity
     private final String FRAGMENT_TAG_FLIP = "flip";
     private final String FRAGMENT_TAG_SWIPE_HELP = "swipe_help";
     private final String FRAGMENT_TAG_FLIP_HELP = "flip_help";
-    private SensorManager sensorManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -235,7 +234,7 @@ public class MainActivity extends AppCompatActivity
         Fragment fragment = fragmentManager.findFragmentByTag(tag);
         if(fragment != null) {
             //fragmentTransaction.remove(fragmentManager.findFragmentByTag(tag)).commit();
-            fragmentTransaction.detach(fragmentManager.findFragmentByTag(tag)).commit();
+            fragmentTransaction.remove(fragmentManager.findFragmentByTag(tag)).commit();
         }
     }
 }
