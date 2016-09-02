@@ -6,8 +6,8 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Configuration;
-import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.Vibrator;
@@ -155,6 +155,10 @@ public class MainActivity extends AppCompatActivity
                         })
                         .create();
                 dialog.show();
+                return true;
+            case R.id.settings:
+                Intent set = new Intent(getApplicationContext(),Settings.class);
+                startActivity(set);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

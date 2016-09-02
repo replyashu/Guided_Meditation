@@ -7,4 +7,6 @@
         android:title="Set Count"/>
     <item  android:id="@+id/check"
         android:title="Check Count"/>
+    <item  android:id="@+id/settings"
+        android:title="Settings"/>
 </menu>
