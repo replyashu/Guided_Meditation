@@ -208,8 +208,8 @@ public class MainActivity extends AppCompatActivity
             checkAvailableFragmentRemove(FRAGMENT_TAG_FLIP_HELP);
 
             // Handle Help activity
-            Fragment_help_flip fragmentHF = new Fragment_help_flip();
-            fragmentTransaction.add(R.id.frag_space, fragmentHF, FRAGMENT_TAG_SWIPE_HELP);
+            Fragment_help_swipe fragmentHS = new Fragment_help_swipe();
+            fragmentTransaction.add(R.id.frag_space, fragmentHS, FRAGMENT_TAG_FLIP_HELP);
             //fragmentTransaction.remove(fragment);
             fragmentTransaction.commit();
 
@@ -221,8 +221,8 @@ public class MainActivity extends AppCompatActivity
             checkAvailableFragmentRemove(FRAGMENT_TAG_FLIP_HELP);
 
             // Handle Help activity
-            Fragment_help_swipe fragmentHS = new Fragment_help_swipe();
-            fragmentTransaction.add(R.id.frag_space, fragmentHS, FRAGMENT_TAG_FLIP_HELP);
+            Fragment_help_flip fragmentHF = new Fragment_help_flip();
+            fragmentTransaction.add(R.id.frag_space, fragmentHF, FRAGMENT_TAG_SWIPE_HELP);
             //fragmentTransaction.remove(fragment);
             fragmentTransaction.commit();
         }

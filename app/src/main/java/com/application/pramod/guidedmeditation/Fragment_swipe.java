@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -30,7 +32,6 @@ public class Fragment_swipe extends Fragment {
         // Find the ListView resource.
         View v = inflater.inflate(R.layout.fragment_main_layout, container, false);
         mainListView = (ListView) v.findViewById( R.id.frag_main_listview );
-
         Log.d("MainActivity", "Left");
 
         // Create and populate a List of planet names.
