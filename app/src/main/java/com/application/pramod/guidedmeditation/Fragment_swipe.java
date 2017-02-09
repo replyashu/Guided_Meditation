@@ -59,13 +59,13 @@ public class Fragment_swipe extends Fragment {
 
 
             public void onSwipeTop() {
-                Toast.makeText(getActivity(), "top", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Swipe down", Toast.LENGTH_SHORT).show();
             }
             public void onSwipeRight() {
-                Toast.makeText(getActivity(), "right", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Swipe down", Toast.LENGTH_SHORT).show();
             }
             public void onSwipeLeft() {
-                Toast.makeText(getActivity(), "left", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Swipe down", Toast.LENGTH_SHORT).show();
             }
             public void onSwipeBottom() {
                 // Vibrate for 50 milliseconds

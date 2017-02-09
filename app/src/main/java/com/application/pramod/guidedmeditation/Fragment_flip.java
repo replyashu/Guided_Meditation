@@ -84,6 +84,7 @@ public class Fragment_flip extends Fragment implements SensorEventListener {
     public void onDetach() {
         super.onStop();
         wl.release();
+        sensorManager.unregisterListener(this,sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER));
     }
 
     @Override
