@@ -11,10 +11,13 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.Vibrator;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import static android.support.v7.widget.StaggeredGridLayoutManager.TAG;
 
 /**
  * Created by pramod on 15-08-2016.
@@ -70,28 +73,41 @@ public class Fragment_flip extends Fragment implements SensorEventListener {
     @Override
     public void onPause() {
         super.onPause();
-        wl.release();
+        wakelockRelease();
     }
 
     /** Called when the activity is no longer visible. */
     @Override
     public void onStop() {
         super.onStop();
-        wl.release();
+        wakelockRelease();
     }
 
     @Override
     public void onDetach() {
         super.onStop();
-        wl.release();
+        wakelockRelease();
         sensorManager.unregisterListener(this,sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER));
     }
 
     @Override
     public void onDestroy() {
         super.onStop();
-        wl.release();
+        wakelockRelease();
         sensorManager.unregisterListener(this,sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER));
+    }
+
+    public void wakelockRelease() {
+        // sanity check for null as this is a public method
+        if (wl != null) {
+            try {
+                wl.release();
+            } catch (Throwable th) {
+                // ignoring this exception, probably wakeLock was already released
+            }
+        } else {
+            // should never happen during normal workflow
+        }
     }
 
     @Override
