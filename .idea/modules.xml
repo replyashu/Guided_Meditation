@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/GuidedMeditation.iml" filepath="$PROJECT_DIR$/GuidedMeditation.iml" />
       <module fileurl="file://$PROJECT_DIR$/Guided_Meditation.iml" filepath="$PROJECT_DIR$/Guided_Meditation.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
