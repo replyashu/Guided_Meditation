@@ -1,4 +1,4 @@
-package com.application.pramod.guidedmeditation;
+package com.application.pramod.guidedmeditation.activity;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -22,10 +22,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
+import com.application.pramod.guidedmeditation.R;
+import com.application.pramod.guidedmeditation.utils.Settings;
+import com.application.pramod.guidedmeditation.fragment.Fragment_flip;
+import com.application.pramod.guidedmeditation.fragment.Fragment_help_flip;
+import com.application.pramod.guidedmeditation.fragment.Fragment_help_swipe;
+import com.application.pramod.guidedmeditation.fragment.Fragment_swipe;
+import com.application.pramod.guidedmeditation.utils.Params;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     Vibrator v;
-    com.application.pramod.guidedmeditation.Params param;
+    Params param;
     PowerManager pm;
     PowerManager.WakeLock wl;
     private final String FRAGMENT_TAG_SWIPE = "swipe";
@@ -61,7 +69,7 @@ public class MainActivity extends AppCompatActivity
 
 //        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 //        sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
-        param = new com.application.pramod.guidedmeditation.Params();
+        param = new Params();
 
         pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "My Tag");

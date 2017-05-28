@@ -1,4 +1,4 @@
-package com.application.pramod.guidedmeditation;
+package com.application.pramod.guidedmeditation.fragment;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -11,10 +11,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.application.pramod.guidedmeditation.R;
+import com.application.pramod.guidedmeditation.utils.OnSwipeTouchListener;
+import com.application.pramod.guidedmeditation.utils.Params;
 
 import java.util.ArrayList;
 
@@ -51,11 +53,11 @@ public class Fragment_swipe extends Fragment {
 //        listAdapter.add( "Haumea" );
 //        listAdapter.add( "Makemake" );
 //        listAdapter.add( "Eris" );
-        listAdapter.insert(com.application.pramod.guidedmeditation.Params.getCount().toString(), 0);
+        listAdapter.insert(Params.getCount().toString(), 0);
 
         // Set the ArrayAdapter as the ListView's adapter.
         mainListView.setAdapter( listAdapter );
-        v.setOnTouchListener(new com.application.pramod.guidedmeditation.OnSwipeTouchListener(getActivity()) {
+        v.setOnTouchListener(new OnSwipeTouchListener(getActivity()) {
 
 
             public void onSwipeTop() {
@@ -69,16 +71,16 @@ public class Fragment_swipe extends Fragment {
             }
             public void onSwipeBottom() {
                 // Vibrate for 50 milliseconds
-                com.application.pramod.guidedmeditation.Params.increment_count();
-                listAdapter.insert(com.application.pramod.guidedmeditation.Params.getCount().toString(), 0);
+                Params.increment_count();
+                listAdapter.insert(Params.getCount().toString(), 0);
                 mainListView.setAdapter( listAdapter );
 
                 Vibrator v;
                 // Get instance of Vibrator from current Context
                 v = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
                 v.vibrate(50);
-                if(com.application.pramod.guidedmeditation.Params.getCount() >= com.application.pramod.guidedmeditation.Params.getCount_limit()) {
-                    com.application.pramod.guidedmeditation.Params.setCount(0);
+                if(Params.getCount() >= Params.getCount_limit()) {
+                    Params.setCount(0);
                     v.vibrate(4000);
                     AlertDialog dialog = new AlertDialog.Builder(getActivity())
                             .setTitle("Session Complete!!!")

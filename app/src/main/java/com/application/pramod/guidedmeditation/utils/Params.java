@@ -1,4 +1,4 @@
-package com.application.pramod.guidedmeditation;
+package com.application.pramod.guidedmeditation.utils;
 
 /**
  * Created by pram on 8/12/2016.

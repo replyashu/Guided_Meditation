@@ -1,4 +1,4 @@
-package com.application.pramod.guidedmeditation;
+package com.application.pramod.guidedmeditation.utils;
 
 import android.content.Context;
 import android.view.GestureDetector;

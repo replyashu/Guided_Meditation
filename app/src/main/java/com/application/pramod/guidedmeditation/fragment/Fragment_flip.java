@@ -1,4 +1,4 @@
-package com.application.pramod.guidedmeditation;
+package com.application.pramod.guidedmeditation.fragment;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -11,13 +11,13 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.Vibrator;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import static android.support.v7.widget.StaggeredGridLayoutManager.TAG;
+import com.application.pramod.guidedmeditation.utils.Params;
+import com.application.pramod.guidedmeditation.R;
 
 /**
  * Created by pramod on 15-08-2016.
